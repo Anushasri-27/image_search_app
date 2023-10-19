@@ -8,8 +8,10 @@ export const ImageContext = createContext();
 
 const Home = () => {
   const { isLoading, fetchData, response, error } = useAxios(
-    `search/photos?page=1&query=office&client_id=${process.env.REACT_APP_ACCESS_KEY}`
+    `search/photos?page=1&query=cats&client_id=${process.env.REACT_APP_ACCESS_KEY}`
   );
+
+  console.log(response);
 
   const value = {
     isLoading,
