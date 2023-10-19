@@ -1,17 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ImageContext } from "../page/Home";
+import ImageCard from "./ImageCard";
 
 const Images = () => {
+  const {response , isLoading} =useContext(ImageContext);
+
   return (
     <>
       <h1 className="text-center mt-6 underline text-2xl">Result for Search</h1>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 my-10">
-        <h1>image 1</h1>
-        <h1>image 1</h1>
-        <h1>image 1</h1>
-        <h1>image 1</h1>
-        <h1>image 1</h1>
-        <h1>image 1</h1>
-        <h1>image 1</h1>
+        {response.map((data,key)=> <ImageCard key={key} data={data} />)}
       </div>
     </>
   );
