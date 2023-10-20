@@ -9,14 +9,14 @@ const ImageCard = ({ data }) => {
     <div class="max-w-sm bg-white  rounded-lg shadow bg-gray-300 dark:border-gray-700">
       <a href={data.urls.regular} target="blank" rel="noreferrer">
         <img
-          className="h-72 w-full object-cover rounded-lg shadow-dark"
+          className="h-80 w-full card-img object-cover rounded-lg shadow-dark"
           src={data.urls.small}
           alt={data.alt_description}
         />
       </a>
-      <div class="parent p-5">
+      <div class="parent py-4 px-5">
         <p class="user-wrap mb-3 font-normal text-black dark:text-black">
-          <div className="avatar-wrap">
+          <div className="avatar-wrap ">
             <span>
               <img
                 className="avatar rounded-full "
@@ -24,21 +24,21 @@ const ImageCard = ({ data }) => {
                 alt="use avatar small"
               />
             </span>
-            <span>
+            <span >
               <p> {data.user.first_name}</p>
               <p> {data.user.last_name}</p>
             </span>
           </div>
-          <div class="likes items-center  py-2 text-sm font-medium text-center   ">
+          <div class="likes items-center   py-2 text-sm font-medium text-center   ">
             <span>
               <img width="20" src={icon} alt="like" />
             </span>
             <p>{data.likes}</p>
           </div>
         </p>
-        <hr></hr>
-        <div class="created-on  inline-flex items-center text-sm font-medium text-center text-white   ">
+        <div class="created-on   inline-flex items-center text-sm font-medium text-center text-white   ">
           <p className="created-on">
+        <hr></hr>
             <button className="modal-btn" onClick={() => setOpenModal(true)}>View details</button>
             <Modal open={openModal} setOpenModal={setOpenModal} data={data} />
           </p>

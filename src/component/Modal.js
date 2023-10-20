@@ -26,7 +26,7 @@ const Modal = ({ open, setOpenModal, data }) => {
                 Image description{" "}
               </h2>
               <p
-                className={`user-social-items desc ${displaHidden(
+                className={` desc ${displaHidden(
                   data.description
                 )}`}
               >
@@ -78,7 +78,7 @@ const Modal = ({ open, setOpenModal, data }) => {
           <div className="btnConatiner">
             <a href={data.urls.full}>
               <button className="btnOutline">
-                <h1>click here to download</h1>
+                <h1>click on the  button to download the image</h1>
                 <span className="bold download-btn">Download</span>
               </button>
             </a>
