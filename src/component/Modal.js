@@ -4,7 +4,7 @@ const Modal = ({ open, setOpenModal, data }) => {
   if (!open) return null;
   const displaHidden = (temp) => {
     if (temp === null) {
-      return "hidden";
+      return "hidden-app";
     }
   };
 

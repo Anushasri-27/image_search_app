@@ -1,11 +1,59 @@
-import React from 'react'
+import React from "react";
 
 const About = () => {
   return (
     <div>
-      about
+      <div id="about" className="relative bg-white overflow-hidden mt-16">
+        <div className="max-w-7xl mx-auto">
+          <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+            <svg
+              className="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2"
+              fill="currentColor"
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <polygon points="50,0 100,0 50,100 0,100" />
+            </svg>
+            <div className="pt-1" />
+            <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+              <div className="sm:text-center lg:text-left">
+                <h2 className="my-6 text-2xl tracking-tight font-extrabold text-gray-900 sm:text-3xl md:text-4xl">
+                  About me
+                </h2>
+                <p>
+                  I am a passionate and experienced professional dedicated to
+                  creating a seamless and feature-rich platform that empowers
+                  users to explore, discover, and utilize stunning imagery for
+                  their creative endeavors.
+                 I have a strong
+                  educational and professional background in software
+                  development and have honed my skills in web and mobile
+                  application development, with a focus on front-end and
+                  back-end technologies. My experience extends to full-stack
+                  development, allowing me to create a well-rounded and robust
+                  image search app.I am well-versed
+                  in integrating third-party APIs into applications. My
+                  expertise in using the Unsplash API ensures that the app can
+                  efficiently and securely access Unsplash's extensive image
+                  library, providing users with a rich selection of high-quality
+                  visuals.
+            
+                </p>
+              </div>
+            </main>
+          </div>
+        </div>
+        <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+          <img
+            className="h-56 w-full object-cover object-top sm:h-72 md:h-96 lg:w-full lg:h-full"
+            src="https://cdn.pixabay.com/photo/2016/03/23/04/01/woman-1274056_960_720.jpg"
+            alt=""
+          />
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default About
+export default About;

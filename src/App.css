@@ -15,6 +15,10 @@ body {
     font-size: larger;
 }
 
+.navbar{
+    background-color: rgb(37, 53, 71);
+    color: white;
+}
 .header-wrap {
   background-image: url("../src/image/header_bg.png");
   background-attachment: local;
@@ -111,9 +115,10 @@ body {
   align-items: center;
 }
 
-.hidden {
+.hidden-app{
   display: none;
 }
+
 
 .size {
   background-color: rgba(128, 128, 128, 0.632);
