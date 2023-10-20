@@ -3,7 +3,7 @@ import icon from "../image/thumb-up.png";
 import Modal from "./Modal";
 
 const ImageCard = ({ data }) => {
-  const [openModal ,setOpenModal] = useState(true);
+  const [openModal, setOpenModal] = useState(false);
   console.log(data);
   return (
     <div class="max-w-sm bg-white  rounded-lg shadow bg-gray-300 dark:border-gray-700">
@@ -15,12 +15,13 @@ const ImageCard = ({ data }) => {
         />
       </a>
       <div class="parent p-5">
-        <p class="user-wrap mb-3 font-normaltext-black dark:text-black">
+        <p class="user-wrap mb-3 font-normal text-black dark:text-black">
           <div className="avatar-wrap">
             <span>
               <img
                 className="avatar rounded-full "
                 src={data.user.profile_image.small}
+                alt="use avatar small"
               />
             </span>
             <span>
@@ -38,8 +39,8 @@ const ImageCard = ({ data }) => {
         <hr></hr>
         <div class="created-on  inline-flex items-center text-sm font-medium text-center text-white   ">
           <p className="created-on">
-            <button onClick={()=> setOpenModal(true)}>View details</button>
-            <Modal open={openModal}  setOpenModal={setOpenModal} data={data} />
+            <button className="modal-btn" onClick={() => setOpenModal(true)}>View details</button>
+            <Modal open={openModal} setOpenModal={setOpenModal} data={data} />
           </p>
         </div>
       </div>
