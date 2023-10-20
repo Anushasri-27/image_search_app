@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import React, { createContext, useState } from "react";
 import Header from "../component/Header";
 import SearchField from "../component/SearchField";
 import Images from "../component/Images";
@@ -7,8 +7,9 @@ import useAxios from "../hooks/useAxios";
 export const ImageContext = createContext();
 
 const Home = () => {
+  const [searchImage ,setSearchImage]=  useState("");
   const { isLoading, fetchData, response, error } = useAxios(
-    `search/photos?page=1&query=cats&client_id=${process.env.REACT_APP_ACCESS_KEY}`
+    `search/photos?page=1&query=random&client_id=${process.env.REACT_APP_ACCESS_KEY}`
   );
 
   console.log(response);
@@ -17,7 +18,9 @@ const Home = () => {
     isLoading,
     fetchData,
     response,
-    error
+    error,
+    setSearchImage,
+    searchImage
   };
 
   return (

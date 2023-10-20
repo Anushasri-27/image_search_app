@@ -1,5 +1,5 @@
 import React from 'react'
-import { Divider } from 'rsuite'
+
 
 const Skeleton = ({item}) => {
   return [...Array(item).keys()].map(()=>(
