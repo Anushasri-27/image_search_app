@@ -4,7 +4,6 @@ import Modal from "./Modal";
 
 const ImageCard = ({ data }) => {
   const [openModal, setOpenModal] = useState(false);
-  console.log(data);
   return (
     <div class="max-w-sm bg-white  rounded-lg shadow bg-gray-300 dark:border-gray-700">
       <a href={data.urls.regular} target="blank" rel="noreferrer">

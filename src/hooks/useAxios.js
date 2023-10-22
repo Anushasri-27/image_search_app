@@ -4,12 +4,16 @@ import  { useEffect, useState } from "react";
 const useAxios = (param) => {
   const [response, setResponse] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [page ,setPage] =useState([]);
   const [error, setError] = useState("");
   axios.defaults.baseURL = "https://api.unsplash.com";
   const fetchData = async (url) => {
     try {
       setIsLoading(true);
       const res = await axios(url);
+      
+      setPage(res.data);
+
       setResponse(res.data.results);
     } catch (err) {
       setError(err);
@@ -27,6 +31,7 @@ const useAxios = (param) => {
     response,
     isLoading,
     error,
+    page,
     fetchData: url => fetchData(url)
   };
 };

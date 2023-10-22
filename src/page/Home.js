@@ -3,25 +3,31 @@ import Header from "../component/Header";
 import SearchField from "../component/SearchField";
 import Images from "../component/Images";
 import useAxios from "../hooks/useAxios";
+import Pagination from "../component/Pagination";
 //create context
 export const ImageContext = createContext();
 
 const Home = () => {
   const [searchImage ,setSearchImage]=  useState("");
-  const { isLoading, fetchData, response, error } = useAxios(
-    `search/photos?page=1&query=random&client_id=${process.env.REACT_APP_ACCESS_KEY}`
+  const [currPage , setCurrPage] = useState(1);
+  const { isLoading, fetchData, response, error , page} = useAxios(
+    `search/photos?page=${currPage}&query=random&client_id=${process.env.REACT_APP_ACCESS_KEY}`
   );
 
-  console.log(response);
+ console.log(currPage)
 
   const value = {
     isLoading,
     fetchData,
     response,
+    page,
     error,
+    currPage,
+    setCurrPage,
     setSearchImage,
     searchImage
   };
+ 
 
   return (
     <div>
@@ -30,6 +36,7 @@ const Home = () => {
           <SearchField />
         </Header>
         <Images />
+        <Pagination />
       </ImageContext.Provider>
     </div>
   );

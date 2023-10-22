@@ -1,30 +1,32 @@
-import React, { useContext, useState } from "react";
-import '../App.css';
+import React, { useContext,  useState } from "react";
+import "../App.css";
 import { ImageContext } from "../page/Home";
 
-
 const SearchField = () => {
-  const [searchValue ,setSearchValue] = useState("");
-  const {fetchData ,setSearchImage} = useContext(ImageContext);
-  const handleInputChange = (e) =>{
-     setSearchValue(e.target.value);
-    
-   
-  }
-  const handleBtnSearch=()=>{
-    fetchData(`search/photos?page=1&query=${searchValue}&client_id=${process.env.REACT_APP_ACCESS_KEY}`)
-    setSearchValue("");
-    setSearchImage(searchValue);
-   
+  const [searchValue, setSearchValue] = useState("");
+  const { fetchData, setSearchImage, currPage} =useContext(ImageContext);
 
-  }
-  const handleEnterSearch = e =>{
-    if(e.key === 'Enter'){
-      fetchData(`search/photos?page=1&query=${searchValue}&client_id=${process.env.REACT_APP_ACCESS_KEY}`)
+  const handleInputChange = (e) => {
+    setSearchValue(e.target.value);
+  };
+  const handleBtnSearch = () => {
+    fetchData(
+      `search/photos?page=${currPage}&query=${searchValue}&client_id=${process.env.REACT_APP_ACCESS_KEY}`
+    );
+    setSearchValue("");
+
+    setSearchImage(searchValue);
+  };
+  const handleEnterSearch = (e) => {
+    if (e.key === "Enter") {
+      fetchData(
+        `search/photos?page=${currPage}&query=${searchValue}&client_id=${process.env.REACT_APP_ACCESS_KEY}`
+      );
       setSearchValue("");
+
       setSearchImage(searchValue);
     }
-  }
+  };
   return (
     <div>
       <input
@@ -34,12 +36,14 @@ const SearchField = () => {
         value={searchValue}
         onChange={handleInputChange}
         onKeyDown={handleEnterSearch}
-     />
+      />
       <button
-      className="search-btn bg-emerald-600 px-6 text-white font-bold rounded-tr rounded-br disabled:bg-gray-400"
-      onClick={handleBtnSearch}
-      disabled={!searchValue}
-      >search</button>
+        className="search-btn bg-emerald-600 px-6 text-white font-bold rounded-tr rounded-br disabled:bg-gray-400"
+        onClick={handleBtnSearch}
+        disabled={!searchValue}
+      >
+        search
+      </button>
     </div>
   );
 };

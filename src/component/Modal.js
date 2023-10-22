@@ -8,9 +8,10 @@ const Modal = ({ open, setOpenModal, data }) => {
     }
   };
 
+
   return (
-    <div className="overlay">
-      <div className="modalContainer">
+    <div onClick={()=>{setOpenModal(false)}} className="overlay">
+      <div onClick={(e)=>{ e.stopPropagation()}} className="modalContainer">
         <p>
           <img className="img-display" src={data.urls.regular} alt="" />
         </p>
@@ -49,14 +50,14 @@ const Modal = ({ open, setOpenModal, data }) => {
                 />
                 <span className="fullname-wrap">
                   <span className="fullname">
-                    <p> {data.user.first_name}</p>
-                    <p> {data.user.last_name}</p>
+                    <p className="name-items"> {data.user.first_name}</p>
+                    <p className="name-items last-name"> {data.user.last_name}</p>
                   </span>
-
+                   
                   <p> {data.user.bio}</p>
                 </span>
               </p>
-
+               <hr></hr>
               <div className="user-social">
                 <p className="user-social-items">
                   {" "}
@@ -72,13 +73,13 @@ const Modal = ({ open, setOpenModal, data }) => {
                 </p>
               </div>
             </div>
-            <hr></hr>
+          
           </div>
 
           <div className="btnConatiner">
             <a href={data.urls.full}>
               <button className="btnOutline">
-                <h1>click on the  button to download the image</h1>
+                <h1 className="dbtn-text">click on the  button to download the image</h1>
                 <span className="bold download-btn">Download</span>
               </button>
             </a>
